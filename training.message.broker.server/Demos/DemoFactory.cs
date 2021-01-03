@@ -15,6 +15,7 @@ namespace training.message.broker.server.Demos
         {
             "simple" => _serviceProvider.GetService(typeof(SimpleServiceBusMessageBrokerDemo)) as Demo,
             "chat" => _serviceProvider.GetService(typeof(ChatServiceBusMessageBrokerDemo)) as Demo,
+            "duplicate" => _serviceProvider.GetService(typeof(DuplicateServiceBusMessageBrokerDemo)) as Demo,
             _ => _serviceProvider.GetService(typeof(DefaultDemo)) as Demo
         };
     }

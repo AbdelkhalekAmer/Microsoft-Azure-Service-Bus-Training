@@ -21,8 +21,10 @@ namespace training.message.broker.server.ServiceCollectionExtensions
             services.AddTransient<DefaultDemo>();
 
             services.AddTransient<SimpleServiceBusMessageBrokerDemo>();
-            
+
             services.AddTransient<ChatServiceBusMessageBrokerDemo>();
+
+            services.AddTransient<DuplicateServiceBusMessageBrokerDemo>();
         }
     }
 }
