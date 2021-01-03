@@ -18,7 +18,11 @@ namespace training.message.broker.server.ServiceCollectionExtensions
 
             services.AddSingleton<DemoFactory>();
 
+            services.AddTransient<DefaultDemo>();
+
             services.AddTransient<SimpleServiceBusMessageBrokerDemo>();
+            
+            services.AddTransient<ChatServiceBusMessageBrokerDemo>();
         }
     }
 }

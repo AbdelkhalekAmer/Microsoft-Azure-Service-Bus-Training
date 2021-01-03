@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 using System;
 
@@ -19,9 +20,16 @@ namespace training.message.broker.server
             // Prepare dependency injection container
             var serviceProvider = ServiceProviderBuilder.ConfigureServices();
 
+            // Get logger
+            var logger = serviceProvider.GetService<ILogger<Program>>();
+
             var demoFactory = serviceProvider.GetService<DemoFactory>();
 
-            using var demo = demoFactory.Create("");
+            var name = args != null && args.Length > 0 ? args[0] : "Invalid";
+
+            logger.LogInformation($"Demo name: {name}");
+
+            using var demo = demoFactory.Create(name);
 
             demo.RunAsync().Wait();
 
